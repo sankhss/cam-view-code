@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,11 @@
 		7EB02C5526B7341500E778E0 /* AppContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB02C5426B7341500E778E0 /* AppContainerViewController.swift */; };
 		7EB02C5A26B7341700E778E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EB02C5926B7341700E778E0 /* Assets.xcassets */; };
 		7EB02C5D26B7341700E778E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EB02C5B26B7341700E778E0 /* LaunchScreen.storyboard */; };
+		7EB02C6826B75F0600E778E0 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB02C6726B75F0600E778E0 /* GalleryViewController.swift */; };
+		7EB02C6A26B75F4100E778E0 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB02C6926B75F4100E778E0 /* GalleryView.swift */; };
+		7EB02C6D26B75F6D00E778E0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB02C6C26B75F6D00E778E0 /* BaseView.swift */; };
+		7EB02C7026B75FFB00E778E0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7EB02C6F26B75FFB00E778E0 /* SnapKit */; };
+		7EB02C7626B762DE00E778E0 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB02C7526B762DE00E778E0 /* UIButton+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,10 @@
 		7EB02C5926B7341700E778E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EB02C5C26B7341700E778E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7EB02C5E26B7341700E778E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EB02C6726B75F0600E778E0 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		7EB02C6926B75F4100E778E0 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		7EB02C6C26B75F6D00E778E0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		7EB02C7526B762DE00E778E0 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EB02C7026B75FFB00E778E0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +64,9 @@
 		7EB02C4F26B7341500E778E0 /* cam-gallery */ = {
 			isa = PBXGroup;
 			children = (
+				7EB02C7426B762C400E778E0 /* Extensions */,
+				7EB02C6B26B75F5D00E778E0 /* Protocols */,
+				7EB02C6526B75E4100E778E0 /* Modules */,
 				7EB02C6426B7396900E778E0 /* App */,
 				7EB02C5026B7341500E778E0 /* AppDelegate.swift */,
 				7EB02C5226B7341500E778E0 /* SceneDelegate.swift */,
@@ -72,6 +85,39 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		7EB02C6526B75E4100E778E0 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				7EB02C6626B75E4E00E778E0 /* Gallery */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		7EB02C6626B75E4E00E778E0 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				7EB02C6726B75F0600E778E0 /* GalleryViewController.swift */,
+				7EB02C6926B75F4100E778E0 /* GalleryView.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		7EB02C6B26B75F5D00E778E0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7EB02C6C26B75F6D00E778E0 /* BaseView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7EB02C7426B762C400E778E0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7EB02C7526B762DE00E778E0 /* UIButton+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,6 +134,9 @@
 			dependencies = (
 			);
 			name = "cam-gallery";
+			packageProductDependencies = (
+				7EB02C6F26B75FFB00E778E0 /* SnapKit */,
+			);
 			productName = "cam-gallery";
 			productReference = 7EB02C4D26B7341500E778E0 /* cam-gallery.app */;
 			productType = "com.apple.product-type.application";
@@ -115,6 +164,9 @@
 				Base,
 			);
 			mainGroup = 7EB02C4426B7341500E778E0;
+			packageReferences = (
+				7EB02C6E26B75FFB00E778E0 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 7EB02C4E26B7341500E778E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,8 +194,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EB02C5526B7341500E778E0 /* AppContainerViewController.swift in Sources */,
+				7EB02C7626B762DE00E778E0 /* UIButton+Extensions.swift in Sources */,
+				7EB02C6826B75F0600E778E0 /* GalleryViewController.swift in Sources */,
 				7EB02C5126B7341500E778E0 /* AppDelegate.swift in Sources */,
+				7EB02C6D26B75F6D00E778E0 /* BaseView.swift in Sources */,
 				7EB02C5326B7341500E778E0 /* SceneDelegate.swift in Sources */,
+				7EB02C6A26B75F4100E778E0 /* GalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +393,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7EB02C6E26B75FFB00E778E0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7EB02C6F26B75FFB00E778E0 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EB02C6E26B75FFB00E778E0 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7EB02C4526B7341500E778E0 /* Project object */;
 }
