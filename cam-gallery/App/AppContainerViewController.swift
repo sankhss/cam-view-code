@@ -15,14 +15,13 @@ class AppContainerViewController: UIViewController {
     
     private lazy var galleryViewController: GalleryViewController = {
         let controller = GalleryViewController()
-        controller.view.frame = containerView.frame
         controller.delegate = self
         return controller
     }()
     
     private lazy var filtersViewController: FiltersViewController = {
         let controller = FiltersViewController()
-        controller.view.frame = containerView.frame
+        controller.delegate = self
         return controller
     }()
     
@@ -33,18 +32,22 @@ class AppContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        edgesForExtendedLayout = []
         updateContainer(with: galleryViewController)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupNavigationBar()
     }
     
     @objc func cameraButtonPressed() {
-        updateContainer(with: filtersViewController)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePickerViewController = UIImagePickerController()
+            imagePickerViewController.sourceType = .camera
+            imagePickerViewController.delegate = self
+            present(imagePickerViewController, animated: true, completion: nil)
+        }
     }
     
     private func setupNavigationBar() {
@@ -52,12 +55,16 @@ class AppContainerViewController: UIViewController {
         cameraButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
         
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = .systemPink
         navigationItem.setLeftBarButton(UIBarButtonItem(customView: cameraButton), animated: true)
         
         title = "Cam Gallery"
     }
     
 }
+
+//MARK: - GalleryViewController Delegate Methods
 
 extension AppContainerViewController: GalleryViewControllerDelegate {
     func didSelect(photo: UIImage) {
@@ -67,3 +74,25 @@ extension AppContainerViewController: GalleryViewControllerDelegate {
     }
 }
 
+//MARK: - FiltersViewController Delegate Methods
+
+extension AppContainerViewController: FiltersViewControllerDelegate {
+    func didFinished() {
+        
+    }
+    func didCancel() {
+        updateContainer(with: galleryViewController)
+    }
+}
+
+//MARK: - UIImagePickerController Delegate Methods
+
+extension AppContainerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let photo = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        filtersViewController.photo = photo
+        
+        picker.dismiss(animated: true, completion: nil)
+        updateContainer(with: filtersViewController)
+    }
+}
