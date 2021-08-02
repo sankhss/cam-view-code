@@ -16,6 +16,13 @@ class AppContainerViewController: UIViewController {
     private lazy var galleryViewController: GalleryViewController = {
         let controller = GalleryViewController()
         controller.view.frame = containerView.frame
+        controller.delegate = self
+        return controller
+    }()
+    
+    private lazy var filtersViewController: FiltersViewController = {
+        let controller = FiltersViewController()
+        controller.view.frame = containerView.frame
         return controller
     }()
     
@@ -30,11 +37,33 @@ class AppContainerViewController: UIViewController {
         updateContainer(with: galleryViewController)
     }
     
-    private func updateContainer(with viewController: UIViewController) {
-        addChild(viewController)
-        containerView.addSubview(viewController.view)
-        viewController.didMove(toParent: self)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupNavigationBar()
     }
     
+    @objc func cameraButtonPressed() {
+        updateContainer(with: filtersViewController)
+    }
+    
+    private func setupNavigationBar() {
+        let cameraButton = UIButton.cameraButton()
+        cameraButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
+        
+        navigationController?.navigationBar.tintColor = .white
+        navigationItem.setLeftBarButton(UIBarButtonItem(customView: cameraButton), animated: true)
+        
+        title = "Cam Gallery"
+    }
+    
+}
+
+extension AppContainerViewController: GalleryViewControllerDelegate {
+    func didSelect(photo: UIImage) {
+        let photoPreviewViewController = PhotoPreviewViewController()
+        photoPreviewViewController.photo = photo
+        navigationController?.pushViewController(photoPreviewViewController, animated: true)
+    }
 }
 

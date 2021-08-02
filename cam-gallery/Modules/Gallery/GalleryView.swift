@@ -11,8 +11,8 @@ class GalleryView: UIView, BaseView {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 60, height: 60)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 100, height: 100)
         
         return UICollectionView(frame: self.frame, collectionViewLayout: layout)
     }()
@@ -42,5 +42,6 @@ class GalleryView: UIView, BaseView {
     
     func setupExtraConfigurations() {
         collectionView.backgroundColor = .systemPink
+        collectionView.register(PhotoViewCell.self, forCellWithReuseIdentifier: "photoViewCell")
     }
 }
