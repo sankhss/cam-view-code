@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E083ADF26C2104B002F3F1F /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E083ADE26C2104B002F3F1F /* FilterService.swift */; };
 		7EB02C5126B7341500E778E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB02C5026B7341500E778E0 /* AppDelegate.swift */; };
 		7EB02C5326B7341500E778E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB02C5226B7341500E778E0 /* SceneDelegate.swift */; };
 		7EB02C5526B7341500E778E0 /* AppContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB02C5426B7341500E778E0 /* AppContainerViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E083ADE26C2104B002F3F1F /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		7EB02C4D26B7341500E778E0 /* cam-gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cam-gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB02C5026B7341500E778E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EB02C5226B7341500E778E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E083ADD26C21030002F3F1F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7E083ADE26C2104B002F3F1F /* FilterService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		7EB02C4426B7341500E778E0 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +86,7 @@
 		7EB02C4F26B7341500E778E0 /* cam-gallery */ = {
 			isa = PBXGroup;
 			children = (
+				7E083ADD26C21030002F3F1F /* Services */,
 				7EB02C7426B762C400E778E0 /* Extensions */,
 				7EB02C6B26B75F5D00E778E0 /* Protocols */,
 				7EB02C6526B75E4100E778E0 /* Modules */,
@@ -230,6 +241,7 @@
 				7EB02C8226B7827100E778E0 /* PhotoPreviewViewController.swift in Sources */,
 				7EB02C5526B7341500E778E0 /* AppContainerViewController.swift in Sources */,
 				7EB02C7626B762DE00E778E0 /* UIButton+Extensions.swift in Sources */,
+				7E083ADF26C2104B002F3F1F /* FilterService.swift in Sources */,
 				7EB02C8426B7829400E778E0 /* PhotoPreviewView.swift in Sources */,
 				7EB02C7D26B76D8500E778E0 /* UIViewController+Extensions.swift in Sources */,
 				7EB02C6826B75F0600E778E0 /* GalleryViewController.swift in Sources */,
